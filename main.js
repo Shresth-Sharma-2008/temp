@@ -8,14 +8,18 @@ function sendNotification(title, options){
             window.open(options.data.url);
           };
           console.log('ok')
+          alert('ok')
         } else if (permission === "denied") {
           console.log("Permission for notifications is denied.");
+          alert('denied')
         } else {
           console.log("Permission for notifications is pending.");
+          alert('pending')
         }
       });
     } else {
       console.log("Notifications are not supported in this browser.");
+      alert('no support')
     }
 }
 var notificationTitle = "New Message";
