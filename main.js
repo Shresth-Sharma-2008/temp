@@ -32,12 +32,12 @@ var o = {
 };
 // sendNotification(notificationTitle, notificationOptions);  
 function get(){
-    var gameStateRef  = database.ref('copier1');
+  var name = 'this'
+    var gameStateRef  = database.ref('copier1/'+name);
         gameStateRef.on("value",function(data){
         var data1 = data.val();
         console.log(data1)
-        var name = 'this'
-        if(data1[name]){
+        if(data1 != null){
             console.log('hi');
             database.ref('copier1/'+name).remove();
             sendNotification(t,o)
@@ -45,4 +45,4 @@ function get(){
     });
 }
 get();
-setInterval(get, 10000);
+setInterval(get, 2000);
