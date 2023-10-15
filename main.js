@@ -14,7 +14,7 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 database = firebase.database()
 function sendNotification(title, options){
-    if("Notification" in window){
+    // if("Notification" in window){
       Notification.requestPermission().then(function (permission) {
         if (permission === "granted") {
           var notification = new Notification(title, options);
@@ -31,10 +31,10 @@ function sendNotification(title, options){
           // alert('pending')
         }
       });
-    } else {
-      console.log("Notifications are not supported in this browser.");
-      // alert('no support')
-    }
+    // } else {
+    //   console.log("Notifications are not supported in this browser.");
+    //   // alert('no support')
+    // }
 }
 var t = "Complaint Completed";
 var o = {
