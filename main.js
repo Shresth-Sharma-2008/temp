@@ -1,3 +1,13 @@
+var firebaseConfig = {
+  apiKey: "AIzaSyDCJ8aDj1aNAabamLYsFbMlUArYmzdvGWo",
+  authDomain: "shresth-sharma-v3.firebaseapp.com",
+  databaseURL: "https://shresth-sharma-v3-default-rtdb.firebaseio.com",
+  projectId: "shresth-sharma-v3",
+  storageBucket: "shresth-sharma-v3.appspot.com",
+  messagingSenderId: "52938966152",
+  appId: "1:52938966152:web:7f3b056755e84853fe0b3d"
+};
+firebase.initializeApp(firebaseConfig);
 database = firebase.database()
 function sendNotification(title, options){
     if("Notification" in window){
