@@ -42,6 +42,7 @@ function get(){
             database.ref('copier1/'+name).remove();
             sendNotification(t,o)
         }
+        self.registration.unregister()
     });
 }
 get();
