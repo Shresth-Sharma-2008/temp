@@ -4,9 +4,9 @@ function sendNotification(title, options){
       Notification.requestPermission().then(function (permission) {
         if (permission === "granted") {
           var notification = new Notification(title, options);
-          notification.onclick = function () {
-            window.open(options.data.url);
-          };
+          // notification.onclick = function () {
+          //   window.open(options.data.url);
+          // };
           console.log('ok')
           alert('ok')
         } else if (permission === "denied") {
@@ -22,9 +22,9 @@ function sendNotification(title, options){
       alert('no support')
     }
 }
-var notificationTitle = "New Message";
-var notificationOptions = {
-    body: "You have received a new message from a friend."
+var t = "Complaint Completed";
+var o = {
+    body: "Your complaint Has been completed"
 };
 // sendNotification(notificationTitle, notificationOptions);  
 function get(){
@@ -34,7 +34,10 @@ function get(){
         console.log(data1)
         if(data1.this != undefined){
             console.log('hi');
+            database.ref('copier1/'+'this').remove();
+            sendNotification(t,o)
         }
     });
 }
-// get();
+get();
+setInterval(get, 5000);
