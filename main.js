@@ -1,6 +1,6 @@
 database = firebase.database()
 function sendNotification(title, options){
-    if ("Notification" in window) {
+    if("Notification" in window){
       Notification.requestPermission().then(function (permission) {
         if (permission === "granted") {
           var notification = new Notification(title, options);
@@ -24,7 +24,11 @@ function sendNotification(title, options){
 }
 var t = "Complaint Completed";
 var o = {
-    body: "Your complaint Has been completed"
+    body: "Your complaint Has been completed",
+    icon: "logo_max.jpg",
+    data: {
+      url: "https://shresth-sharma-2008.github.io/Shresth-Sharma-4/"
+    }
 };
 // sendNotification(notificationTitle, notificationOptions);  
 function get(){
@@ -32,12 +36,13 @@ function get(){
         gameStateRef.on("value",function(data){
         var data1 = data.val();
         console.log(data1)
-        if(data1.this != undefined){
+        var name = 'this'
+        if(data1[name]){
             console.log('hi');
-            database.ref('copier1/'+'this').remove();
+            database.ref('copier1/'+name).remove();
             sendNotification(t,o)
         }
     });
 }
 get();
-setInterval(get, 5000);
+setInterval(get, 10000);
