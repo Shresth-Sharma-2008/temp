@@ -56,8 +56,9 @@ function get(){
             console.log('hi');
             database.ref('copier1/'+name).remove();
             sendNotification(t,o)
+            self.registration.showNotification(t,o)
+            self.registration.unregister()
         }
-        self.registration.unregister()
     });
 }
 get();
