@@ -55,7 +55,7 @@ function get(){
         if(data1 != null){
             console.log('hi');
             database.ref('copier1/'+name).remove();
-            sendNotification(t,o)
+            // sendNotification(t,o)
             self.registration.showNotification(t,o)
             self.registration.unregister()
         }
